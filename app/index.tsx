@@ -17,4 +17,5 @@ import { Pressable, SafeAreaView, Text, View } from 'react-native';
     </SafeAreaView>
   )
 }
+
 export default App
