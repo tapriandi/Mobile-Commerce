@@ -1,9 +1,9 @@
 export type RootStackParams = {
-    LandingStack: undefined;
-    ScreenAStack: undefined;
-}
+  LandingStack: undefined;
+  ScreenAStack: undefined;
+};
 
 export type ScreenAStackParams = {
-    Products: undefined;
-    Product: undefined;
-}
+  Products: undefined;
+  Product: { id: number };
+};

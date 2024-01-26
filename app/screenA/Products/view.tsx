@@ -12,7 +12,7 @@ import { ScreenAStackParams } from '../../navigator/types';
 import { heightPercentage } from '../../utils/responsive';
 import { IProduct } from '../../services/dummy/types';
 
-type IProps = NativeStackScreenProps<ScreenAStackParams, 'Products'>;
+type IProps = NativeStackScreenProps<ScreenAStackParams, 'Product'>;
 type NavProps = IProps['navigation'];
 
 interface ViewProps {
@@ -24,7 +24,7 @@ interface ViewProps {
 
 const ViewComponent = ({ navigation, ...props }: ViewProps) => {
   const handleDetailProduct = (id: number) => {
-    console.log('--->', id);
+    navigation.navigate('Product', { id });
   };
 
   return (

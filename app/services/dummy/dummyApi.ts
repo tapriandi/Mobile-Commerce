@@ -15,7 +15,7 @@ export const dummyApi = createApi({
         params: params,
       }),
     }),
-    getProductApi: builder.query<IProduct, string>({
+    getProductApi: builder.query<IProduct, number>({
       query: id => ({
         url: `/products/${id}`,
         method: 'GET',

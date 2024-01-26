@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParams, ScreenAStackParams } from './types';
-import { Landing, Products } from '../screenA';
+import { Landing, Products, ProductDetail } from '../screenA';
 
 const ScreenA = createStackNavigator<ScreenAStackParams>();
 const ScreenAStack = () => {
@@ -11,6 +11,11 @@ const ScreenAStack = () => {
       <ScreenA.Screen 
         name="Products"
         component={Products}
+        options={{ headerShown: false }}
+      />
+      <ScreenA.Screen 
+        name="Product"
+        component={ProductDetail}
         options={{ headerShown: false }}
       />
     </ScreenA.Navigator>

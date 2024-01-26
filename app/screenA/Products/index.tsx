@@ -6,7 +6,7 @@ import { IProduct } from '../../services/dummy/types';
 import { ActivityIndicator, View } from 'react-native';
 import ViewComponent from './view';
 
-type IProps = NativeStackScreenProps<ScreenAStackParams, 'Products'>;
+type IProps = NativeStackScreenProps<ScreenAStackParams, 'Product'>;
 type NavProps = IProps['navigation'];
 
 interface Props {
@@ -25,23 +25,18 @@ const Products = ({ navigation }: Props) => {
   );
 
   const fetchMoreData = async () => {
-    try {
-      if (dataProducts) {
-        const newData = dataProducts?.products;
-        if (data.length < dataProducts?.total) {
-          const dataSlice = newData.slice(data.length, data.length + 8);
-          setData(prevData => [...prevData, ...dataSlice]);
-        }
+    if (dataProducts) {
+      const newData = dataProducts?.products;
+      if (data.length < dataProducts?.total) {
+        const dataSlice = newData.slice(data.length, data.length + 8);
+        setData(prevData => [...prevData, ...dataSlice]);
       }
-    } catch (error) {
-      console.error('Error fetching more data:', error);
     }
   };
 
   useEffect(() => {
-    // Fetch initial data
     fetchMoreData();
-  }, []);
+  }, [dataProducts]);
 
   return (
     <>
