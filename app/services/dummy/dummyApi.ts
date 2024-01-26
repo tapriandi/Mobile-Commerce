@@ -8,11 +8,11 @@ export const dummyApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: base_url }),
   endpoints: builder => ({
     // starShips
-    getAllProductApi: builder.query<IProducts[], { page: number }>({
-      query: (params) => ({
+    getAllProductApi: builder.query<IProducts, any>({
+      query: params => ({
         url: '/products',
         method: 'GET',
-        params: params
+        params: params,
       }),
     }),
     getProductApi: builder.query<IProduct, string>({

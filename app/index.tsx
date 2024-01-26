@@ -1,20 +1,16 @@
 import React from 'react';
 import Main from './navigator';
-import { Pressable, SafeAreaView, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store } from './services/store';
 
  const App = () => {
   return (
-    <SafeAreaView>
-      <View>
-            <Text>landing</Text>
-            <Pressable>
-                <Text>Task 1</Text>
-            </Pressable>
-            <Pressable>
-                <Text>Task 2</Text>
-            </Pressable>
-        </View>
-    </SafeAreaView>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor} >
+          <Main />
+      </PersistGate>
+    </Provider>
   )
 }
 
