@@ -66,6 +66,9 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: 'hidden',
     borderColor: COLORS.gray300,
+    backgroundColor: 'white',
+    shadowColor: COLORS.gray500,
+    elevation: 6
   },
   cardText: {
     padding: 8,

@@ -3,6 +3,7 @@ import { combineReducers, Reducer } from '@reduxjs/toolkit';
 import { persistReducer, WebStorage } from 'redux-persist';
 import { dummySlice } from './dummy/dummySlice';
 import { dummyInitialState } from './dummy/types';
+import { landingSlice } from './landing/landingSlice';
 
 interface IPersistConfig {
   key: string;
@@ -12,6 +13,7 @@ interface IPersistConfig {
 
 interface IRootState {
   dummy: dummyInitialState;
+  landing: string;
 }
 
 const persistConfig: IPersistConfig = {
@@ -23,13 +25,10 @@ const persistConfig: IPersistConfig = {
 // persist reducer
 const combinedReducer = combineReducers<IRootState, any>({
   [dummySlice.name]: dummySlice.reducer,
+  [landingSlice.name]: landingSlice.reducer,
 });
 
 const rootReducer: Reducer = (state: IRootState, action: any) => {
-  if (action.type === 'auth/setLogout') {
-    AsyncStorage.removeItem('persist:root');
-    state = {} as RootReducer;
-  }
   return combinedReducer(state, action);
 };
 
