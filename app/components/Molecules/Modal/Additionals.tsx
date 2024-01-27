@@ -1,10 +1,9 @@
+import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Button, Gap, Modal } from '../../Atoms';
+import { Button, Counter, Gap, Modal } from '../../Atoms';
 import { COLORS } from '../../../constant/colors';
 import { FPercentage, widthPercentage } from '../../../utils/responsive';
-import { useState } from 'react';
 import { CircleActiveIcon, CircleIcon } from '../../../assets/icons';
-import { style } from '../../Atoms/BottomTabItem/styles';
 
 interface Props {
   isOpen: boolean;
@@ -84,11 +83,15 @@ const ModalScanOntable = ({ isOpen, onClose }: Props) => {
               <Text style={{ color: 'white' }}>Free</Text>
             </Pressable>
           ))}
+          <Gap height={15} />
+          <Counter styleCard={styles.counter} />
         </View>
 
         <View style={styles.rowBetween}>
           <Text style={styles.white}>Total</Text>
-          <Text style={styles.white}>165,000 NTD</Text>
+          <Text style={[styles.white, { fontWeight: 'bold' }]}>
+            NT$ 165,000
+          </Text>
         </View>
       </View>
 
@@ -104,7 +107,6 @@ const ModalScanOntable = ({ isOpen, onClose }: Props) => {
 const styles = StyleSheet.create({
   white: {
     color: 'white',
-    fontWeight: 'bold',
     fontSize: FPercentage(3.8),
   },
   title: {
@@ -132,6 +134,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 15,
     backgroundColor: COLORS.gray700,
+  },
+  counter: {
+    paddingHorizontal: '20%',
+    height: 46,
+    justifyContent: 'space-around',
   },
 });
 export default ModalScanOntable;

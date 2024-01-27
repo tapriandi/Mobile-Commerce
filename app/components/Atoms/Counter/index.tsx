@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Pressable } from 'react-native';
+import { StyleSheet, View, Text, Pressable, ViewStyle } from 'react-native';
 import { MinIcon, PlusIcon } from '../../../assets/icons';
 import { COLORS } from '../../../constant/colors';
 
-const index = () => {
+interface Props {
+  styleCard?: ViewStyle;
+}
+
+const index = ({ styleCard }: Props) => {
   const [counter, setCounter] = useState<number>(11);
+
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, styleCard]}>
       <Pressable
         style={styles.btn}
         onPress={() => counter > 0 && setCounter(counter - 1)}>
