@@ -19,7 +19,7 @@ import {
   widthPercentage,
 } from '../../utils/responsive';
 import { VirtualScrollView } from '../../components/Molecules';
-import { ScreenAStackParams } from '../../navigator/types';
+import { BottomTabNavigatorParams, ScreenAStackParams } from '../../navigator/types';
 import { BackIcon, BomberIcon, SearchIcon } from '../../assets/icons';
 import { IProduct } from '../../services/dummy/types';
 import { setMode } from '../../services/landing/landingSlice';
@@ -27,7 +27,7 @@ import { COLORS } from '../../constant/colors';
 import { Banner } from '../../assets/images';
 import { Gap, TextField } from '../../components/Atoms';
 
-type IProps = NativeStackScreenProps<ScreenAStackParams, 'Product'>;
+type IProps = NativeStackScreenProps<BottomTabNavigatorParams, 'Home'>;
 type NavProps = IProps['navigation'];
 
 interface ViewProps {

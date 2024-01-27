@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useGetAllProductApiQuery } from '../../services/dummy/dummyApi';
 import { Event1, Event2, Event3, Event4 } from '../../assets/images';
-import { ScreenAStackParams } from '../../navigator/types';
+import { BottomTabNavigatorParams } from '../../navigator/types';
 import { ActivityIndicator, View } from 'react-native';
 import { IProduct } from '../../services/dummy/types';
 import {
@@ -13,7 +13,7 @@ import {
 } from '../../assets/icons';
 import ViewComponent from './view';
 
-type IProps = NativeStackScreenProps<ScreenAStackParams, 'Product'>;
+type IProps = NativeStackScreenProps<BottomTabNavigatorParams, 'Home'>;
 type NavProps = IProps['navigation'];
 
 interface Props {

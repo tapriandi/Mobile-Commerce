@@ -1,9 +1,9 @@
 import React from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { ScreenBStackParams } from '../../navigator/types';
-import { SafeAreaView, View, Text } from 'react-native';
+import { BottomTabNavigatorParams } from '../../navigator/types';
+import { View, Text } from 'react-native';
 
-type IProps = NativeStackScreenProps<ScreenBStackParams, 'Event'>;
+type IProps = NativeStackScreenProps<BottomTabNavigatorParams, 'Order'>;
 type NavProps = IProps['navigation'];
 
 interface Props {
@@ -12,11 +12,9 @@ interface Props {
 
 const Index = ({ navigation }: Props) => {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Event</Text>
-      </View>
-    </SafeAreaView>
+    <View>
+      <Text>Event</Text>
+    </View>
   );
 };
 export default Index;

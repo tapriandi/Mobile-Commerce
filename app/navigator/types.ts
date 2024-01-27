@@ -1,7 +1,11 @@
-export type RootStackParams = {
-  LandingStack: undefined;
-  ScreenAStack: undefined;
-  ScreenBStack: undefined;
+import { NavigatorScreenParams } from '@react-navigation/native';
+
+export type BottomTabNavigatorParams = {
+  Home: undefined;
+  Event: undefined;
+  Friends: undefined;
+  Profile: undefined;
+  Order: undefined;
 };
 
 export type ScreenAStackParams = {
@@ -10,5 +14,11 @@ export type ScreenAStackParams = {
 };
 
 export type ScreenBStackParams = {
-  Home: undefined;
+  BottomTabNavigator: NavigatorScreenParams<BottomTabNavigatorParams>;
+};
+
+export type RootStackParams = {
+  LandingStack: undefined;
+  ScreenAStack: undefined;
+  ScreenBStack: NavigatorScreenParams<ScreenBStackParams>;
 };
