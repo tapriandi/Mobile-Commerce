@@ -1,5 +1,6 @@
 import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { heightPercentage, widthPercentage } from '../../../utils/responsive';
+import { FPercentage, heightPercentage, widthPercentage } from '../../../utils/responsive';
+import { COLORS } from '../../../constant/colors';
 
 type Style = {
   textTab: TextStyle;
@@ -17,12 +18,11 @@ export const style = (actived?: boolean) =>
       height: heightPercentage('5%'),
       width: widthPercentage('8%'),
       resizeMode: 'contain',
-      // color: actived ? COLORS.PRIMARY : COLORS.DISABLED,
     },
     textTab: {
       textAlign: 'center',
-      fontSize: 10,
-      // color: actived ? COLORS.PRIMARY : COLORS.DISABLED,
+      fontSize: FPercentage(3.4),
+      color: actived ? COLORS.orange : 'white',
       marginTop: 2,
     },
   });

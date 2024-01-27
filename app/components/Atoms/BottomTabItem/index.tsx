@@ -2,10 +2,15 @@ import React, { FC } from 'react';
 import { Text, Pressable } from 'react-native';
 import { style } from './styles';
 import {
+  CommunityActiveIcon,
   CommunityIcon,
+  FlareActiveIcon,
   FlareIcon,
+  HalfMoonActiveIcon,
   HalfMoonIcon,
+  QrCodeActiveIcon,
   QrCodeIcon,
+  UserActiveIcon,
   UserIcon,
 } from '../../../assets/icons';
 
@@ -18,17 +23,18 @@ interface ComponentProps {
 }
 
 const Icon = ({ name, actived }: any) => {
+  console.log(name)
   switch (name) {
     case 'Home':
-      return actived ? <HalfMoonIcon /> : <HalfMoonIcon />;
+      return actived ? <HalfMoonActiveIcon /> : <HalfMoonIcon />;
     case 'Event':
-      return actived ? <FlareIcon /> : <FlareIcon />;
+      return actived ? <FlareActiveIcon /> : <FlareIcon />;
     case 'Friends':
-      return actived ? <CommunityIcon /> : <CommunityIcon />;
+      return actived ? <CommunityActiveIcon /> : <CommunityIcon />;
     case 'Profile':
-      return actived ? <UserIcon /> : <UserIcon />;
+      return actived ? <UserActiveIcon /> : <UserIcon />;
     case 'Order':
-      return actived ? <QrCodeIcon /> : <QrCodeIcon />;
+      return actived ? <QrCodeActiveIcon /> : <QrCodeIcon />;
     default:
       return <HalfMoonIcon />;
   }

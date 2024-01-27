@@ -15,6 +15,7 @@ export type ScreenAStackParams = {
 
 export type ScreenBStackParams = {
   BottomTabNavigator: NavigatorScreenParams<BottomTabNavigatorParams>;
+  Omni: undefined;
 };
 
 export type RootStackParams = {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Keyboard, StyleSheet, View } from 'react-native';
 import { heightPercentage, widthPercentage } from '../../../utils/responsive';
 import { BottomTabItem } from '../../Atoms';
+import { COLORS } from '../../../constant/colors';
 
 function MyTabBar({ state, descriptors, navigation }: any) {
   const [keyboardStatus, setKeyboardStatus] = useState<boolean>(false);
@@ -64,14 +65,12 @@ function MyTabBar({ state, descriptors, navigation }: any) {
 
 const styles = StyleSheet.create({
   bottomTabContainer: {
-    borderTopLeftRadius: 21,
-    borderTopRightRadius: 21,
     width: '100%',
     zIndex: 8,
     flexDirection: 'row',
     paddingHorizontal: widthPercentage('10%'),
     paddingVertical: heightPercentage('1.5%'),
-    backgroundColor: 'white',
+    backgroundColor: COLORS.gray900,
     justifyContent: 'space-between',
   },
   hide: {

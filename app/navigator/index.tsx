@@ -2,11 +2,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { RootStackParams, ScreenAStackParams, ScreenBStackParams } from './types';
+import {
+  RootStackParams,
+  ScreenAStackParams,
+  ScreenBStackParams,
+} from './types';
 import { Landing, Products, ProductDetail } from '../screenA';
 import { landingSelectors } from '../services/landing/landingSelector';
-import { Home } from '../screenB';
-
+import BottomTabNavigatorComponent from './bottomNavigator';
 
 const ScreenA = createStackNavigator<ScreenAStackParams>();
 const ScreenAStack = () => {
@@ -29,10 +32,10 @@ const ScreenAStack = () => {
 const ScreenB = createStackNavigator<ScreenBStackParams>();
 const ScreenBStack = () => {
   return (
-    <ScreenB.Navigator initialRouteName="Home">
+    <ScreenB.Navigator initialRouteName="BottomTabNavigator">
       <ScreenB.Screen
-        name="Home"
-        component={Home}
+        name="BottomTabNavigator"
+        component={BottomTabNavigatorComponent}
         options={{ headerShown: false }}
       />
     </ScreenB.Navigator>
