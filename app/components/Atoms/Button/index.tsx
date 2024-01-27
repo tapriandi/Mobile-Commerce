@@ -32,7 +32,7 @@ const _styles = StyleSheet.create({
   },
   button: {
     width: '100%',
-    height: 45,
+    height: 46,
   },
 });
 export default ModalScanOntable;

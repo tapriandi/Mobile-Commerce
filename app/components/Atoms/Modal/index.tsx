@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import Modal from 'react-native-modal';
 import { View, StyleSheet } from 'react-native';
 import { COLORS } from '../../../constant/colors';
+import { heightPercentage } from '../../../utils/responsive';
 
 interface Props {
   isOpen: boolean;
@@ -16,6 +17,7 @@ const Index = ({ children, isOpen, onClose }: Props) => {
       onBackdropPress={onClose}
       swipeDirection="down"
       onSwipeComplete={onClose}
+      propagateSwipe={true}
       style={styles.container}>
       <View style={styles.wrapper}>
         <View style={styles.center}>
@@ -43,8 +45,9 @@ export const styles = StyleSheet.create({
   },
   line: {
     height: 3,
-    width: 80,
+    width: 50,
     marginTop: 20,
+    borderRadius: 2,
     marginBottom: 5,
     backgroundColor: COLORS.gray400,
   },
