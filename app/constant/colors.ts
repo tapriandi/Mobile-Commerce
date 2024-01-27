@@ -1,6 +1,6 @@
 export const COLORS = {
   gray100: '#F5F5F5',
-  gray200: '#E5E5E5',
+  gray200: '#DEDEEE',
   gray300: '#D4D4D4',
   gray400: '#5D5C5C',
   gray500: '#323232',
@@ -9,6 +9,8 @@ export const COLORS = {
   
   black: '#000000',
   purple: '#AA5AFA',
+  purple1:'#A060FA',
+  purple2:'#C800CC',
   orange: '#F27611',
   yellow: '#FFE419',
 };
