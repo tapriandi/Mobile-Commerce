@@ -25,8 +25,6 @@ const Products = ({ navigation, route }: Props) => {
     refetchOnReconnect: true,
   });
 
-  console.log(data)
-
   return (
     <>
       {isLoading ? (

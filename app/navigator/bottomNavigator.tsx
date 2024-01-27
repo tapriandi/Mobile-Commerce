@@ -17,7 +17,7 @@ function BottomTabNavigatorComponent() {
         name={'Home'}
         component={Home}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Nightlife',
           title: 'Home',
           headerShown: false,
         }}
