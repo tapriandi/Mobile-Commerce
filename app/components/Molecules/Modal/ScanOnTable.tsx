@@ -11,19 +11,21 @@ interface Props {
 const ModalScanOntable = ({ isOpen, onClose }: Props) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <Pressable onPress={onClose} style={styles.arrow}>
-        <ArrowLeftIcon />
-      </Pressable>
+      <View style={{ padding: 20 }}>
+        <Pressable onPress={onClose} style={styles.arrow}>
+          <ArrowLeftIcon />
+        </Pressable>
 
-      <View>
-        <Text style={styles.title}>Scan on table</Text>
+        <View>
+          <Text style={styles.title}>Scan on table</Text>
+        </View>
+        <Gap height={10} />
+        <Text style={styles.desc}>
+          Check your table or asking waiter to give you a QR Code, you can start
+          order by scanning.
+        </Text>
+        <Button title="Gotcha" onPress={() => console.log('lalla')} />
       </View>
-      <Gap height={10} />
-      <Text style={styles.desc}>
-        Check your table or asking waiter to give you a QR Code, you can start
-        order by scanning.
-      </Text>
-      <Button title="Gotcha" onPress={() => console.log('lalla')} />
     </Modal>
   );
 };
@@ -33,6 +35,7 @@ const styles = StyleSheet.create({
     color: COLORS.orange,
     fontSize: FPercentage(4.5),
     fontWeight: 'bold',
+    textAlign: 'center'
   },
   desc: {
     paddingVertical: 20,
@@ -41,7 +44,7 @@ const styles = StyleSheet.create({
   },
   arrow: {
     position: 'absolute',
-    top: 35,
+    top: 20,
     left: 20,
   },
 });

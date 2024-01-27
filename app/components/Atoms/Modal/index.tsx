@@ -18,7 +18,9 @@ const Index = ({ children, isOpen, onClose }: Props) => {
       onSwipeComplete={onClose}
       style={styles.container}>
       <View style={styles.wrapper}>
-        <View style={styles.line}></View>
+        <View style={styles.center}>
+          <View style={styles.line}></View>
+        </View>
         {children}
       </View>
     </Modal>
@@ -32,18 +34,18 @@ export const styles = StyleSheet.create({
   },
   wrapper: {
     backgroundColor: COLORS.gray800,
-    padding: 22,
-    justifyContent: 'center',
-    alignItems: 'center',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },
-  line: {
+  center: {
     flexDirection: 'row',
     justifyContent: 'center',
+  },
+  line: {
     height: 3,
     width: 80,
-    marginBottom: 10,
+    marginTop: 20,
+    marginBottom: 5,
     backgroundColor: COLORS.gray400,
   },
 });
