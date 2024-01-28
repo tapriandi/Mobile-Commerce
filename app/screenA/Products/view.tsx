@@ -9,9 +9,13 @@ import {
   Text,
   View,
 } from 'react-native';
-import { CardProduct, VirtualScrollView } from '../../components/Molecules';
+import {
+  CardProduct,
+  SkeletonProducts,
+  VirtualScrollView,
+} from '../../components/Molecules';
 import { ScreenAStackParams } from '../../navigator/types';
-import { heightPercentage } from '../../utils/responsive';
+import { heightPercentage, widthPercentage } from '../../utils/responsive';
 import { IProduct } from '../../services/dummy/types';
 import { BackIcon } from '../../assets/icons';
 import { useDispatch } from 'react-redux';
@@ -25,10 +29,11 @@ interface ViewProps {
   navigation: NavProps;
   data: IProduct[];
   total: number | any;
+  isLoading: boolean;
   fetchMoreData: () => void;
 }
 
-const ViewComponent = ({ navigation, ...props }: ViewProps) => {
+const ViewComponent = ({ isLoading, navigation, ...props }: ViewProps) => {
   const dispatch = useDispatch();
   const handleDetailProduct = (id: number) => {
     navigation.navigate('Product', { id });
@@ -45,28 +50,32 @@ const ViewComponent = ({ navigation, ...props }: ViewProps) => {
           <Text></Text>
         </View>
 
-        <VirtualScrollView
-          nestedScrollEnabled
-          showsVerticalScrollIndicator={false}>
-          <View style={styles.wrapper}>
-            <FlatList
-              data={props.data}
-              numColumns={2}
-              keyExtractor={item => item.id.toString()}
-              renderItem={({ item }) => (
-                <CardProduct
-                  data={item}
-                  onPressCard={() => handleDetailProduct(item.id)}
-                />
-              )}
-              onEndReached={props.fetchMoreData}
-              onEndReachedThreshold={0.1}
-              ListFooterComponent={() =>
-                props.total > props.data.length && <ActivityIndicator />
-              }
-            />
-          </View>
-        </VirtualScrollView>
+        {isLoading ? (
+          <SkeletonProducts />
+        ) : (
+          <VirtualScrollView
+            nestedScrollEnabled
+            showsVerticalScrollIndicator={false}>
+            <View style={styles.wrapper}>
+              <FlatList
+                data={props.data}
+                numColumns={2}
+                keyExtractor={item => item.id.toString()}
+                renderItem={({ item }) => (
+                  <CardProduct
+                    data={item}
+                    onPressCard={() => handleDetailProduct(item.id)}
+                  />
+                )}
+                onEndReached={props.fetchMoreData}
+                onEndReachedThreshold={0.1}
+                ListFooterComponent={() =>
+                  props.total > props.data.length && <ActivityIndicator />
+                }
+              />
+            </View>
+          </VirtualScrollView>
+        )}
       </View>
     </SafeAreaView>
   );

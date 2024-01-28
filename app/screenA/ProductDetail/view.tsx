@@ -40,7 +40,7 @@ const ViewComp = ({ navigation, data }: ViewProps) => {
                     uri: item,
                     priority: FastImage.priority.normal,
                   }}
-                  style={{ height: '100%' }}
+                  style={{ height: '100%', backgroundColor: 'silver' }}
                   resizeMode={FastImage.resizeMode.cover}
                 />
               ))}

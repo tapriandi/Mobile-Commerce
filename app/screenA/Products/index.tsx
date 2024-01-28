@@ -39,20 +39,13 @@ const Products = ({ navigation }: Props) => {
   }, [dataProducts]);
 
   return (
-    <>
-      {isLoading ? (
-        <View>
-          <ActivityIndicator />
-        </View>
-      ) : (
-        <ViewComponent
-          navigation={navigation}
-          data={data}
-          total={dataProducts?.total}
-          fetchMoreData={fetchMoreData}
-        />
-      )}
-    </>
+    <ViewComponent
+      navigation={navigation}
+      data={data}
+      isLoading={isLoading}
+      total={dataProducts?.total}
+      fetchMoreData={fetchMoreData}
+    />
   );
 };
 export default Products;
