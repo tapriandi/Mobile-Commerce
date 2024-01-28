@@ -4,6 +4,7 @@ import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import {
   CardProductCategory,
   ModalAdditional,
+  ModalCart,
 } from '../../../components/Molecules';
 import { TopTabNavigatorParams } from '../../../navigator/types';
 import { Product4, Product5 } from '../../../assets/images';
@@ -15,11 +16,15 @@ type NavProps = IProps['navigation'];
 
 interface Props {
   navigation: NavProps;
+  showCart: boolean;
+  setShowCart: (e: boolean) => void;
   showAdditional: boolean;
   setShowAdditional: (e: boolean) => void;
 }
 
-const ViewComp = ({ showAdditional, setShowAdditional }: Props) => {
+const ViewComp = (props: Props) => {
+  const { showCart, setShowCart, showAdditional, setShowAdditional } = props;
+
   const gins = [
     {
       id: 1,
@@ -53,7 +58,9 @@ const ViewComp = ({ showAdditional, setShowAdditional }: Props) => {
         isOpen={showAdditional}
         onClose={() => setShowAdditional(false)}
       />
-      <Button title="View Cart" onPress={() => console.log('lalla')} />
+      <Button title="View Cart" onPress={() => setShowCart(true)} />
+
+      <ModalCart isOpen={showCart} onClose={() => setShowCart(false)} />
     </SafeAreaView>
   );
 };

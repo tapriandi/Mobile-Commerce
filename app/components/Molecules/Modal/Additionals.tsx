@@ -10,6 +10,7 @@ interface Props {
   onClose: () => void;
 }
 const ModalScanOntable = ({ isOpen, onClose }: Props) => {
+  const [counter, setCounter] = useState<number>(0);
   const [iceSelected, setIceSelected] = useState<number>();
   const [sugarSelected, setSugarSelected] = useState<number>();
 
@@ -35,6 +36,7 @@ const ModalScanOntable = ({ isOpen, onClose }: Props) => {
           <Gap height={10} />
           {sugar.map((item, idx) => (
             <Pressable
+              key={idx}
               style={[styles.rowBetween, { paddingVertical: 5 }]}
               onPress={() => setSugarSelected(item.id)}>
               <View style={styles.row}>
@@ -62,6 +64,7 @@ const ModalScanOntable = ({ isOpen, onClose }: Props) => {
           <Gap height={10} />
           {ice.map((item, idx) => (
             <Pressable
+              key={idx}
               style={[styles.rowBetween, { paddingVertical: 5 }]}
               onPress={() => setIceSelected(item.id)}>
               <View style={styles.row}>
@@ -84,7 +87,11 @@ const ModalScanOntable = ({ isOpen, onClose }: Props) => {
             </Pressable>
           ))}
           <Gap height={15} />
-          <Counter styleCard={styles.counter} />
+          <Counter
+            styleCard={styles.counter}
+            counter={counter}
+            setCounter={setCounter}
+          />
         </View>
 
         <View style={styles.rowBetween}>

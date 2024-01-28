@@ -35,6 +35,7 @@ const ViewComp = ({ navigation, data }: ViewProps) => {
             <Swiper loop={false} style={{ height: 380 }} autoplay>
               {data.images.map((item: string, idx: number) => (
                 <FastImage
+                  key={idx}
                   source={{
                     uri: item,
                     priority: FastImage.priority.normal,

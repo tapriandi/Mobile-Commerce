@@ -24,9 +24,9 @@ const Landing = ({ navigation }: Props) => {
 
   return (
     <SafeAreaView style={[styles.container, styles.rowCenter]}>
+      <Text style={styles.title}>Mobile Test Code</Text>
+      <Gap height={40} />
       <View>
-        <Text style={styles.title}>Landing</Text>
-        <Gap height={20} />
         <Pressable
           style={[styles.button, styles.rowCenter]}
           onPress={() => dispatch(setMode('task1'))}>
@@ -66,7 +66,7 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: COLORS.gray100,
     shadowColor: COLORS.gray500,
-    elevation: 6
+    elevation: 6,
   },
 });
 export default Landing;

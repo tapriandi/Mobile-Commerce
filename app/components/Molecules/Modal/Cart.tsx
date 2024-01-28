@@ -18,8 +18,7 @@ interface Props {
   onClose: () => void;
 }
 const ModalScanOntable = ({ isOpen, onClose }: Props) => {
-  const [iceSelected, setIceSelected] = useState<number>();
-  const [sugarSelected, setSugarSelected] = useState<number>();
+  const [counter, setCounter] = useState<number>(0);
 
   const cart = [
     {
@@ -77,7 +76,7 @@ const ModalScanOntable = ({ isOpen, onClose }: Props) => {
               </Pressable>
               <View style={[styles.rowBetween, styles.cardFoot]}>
                 <DeleteIcon />
-                <Counter />
+                <Counter counter={counter} setCounter={setCounter} />
               </View>
             </View>
           ))}
