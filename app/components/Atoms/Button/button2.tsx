@@ -1,4 +1,3 @@
-import LinearGradient from 'react-native-linear-gradient';
 import { Pressable, StyleSheet, Text, ViewStyle } from 'react-native';
 import { COLORS } from '../../../constant/colors';
 import { FPercentage } from '../../../utils/responsive';
@@ -10,29 +9,23 @@ interface Props {
 }
 const ModalScanOntable = ({ styles, title, onPress }: Props) => {
   return (
-    <Pressable style={{ width: '100%' }} onPress={onPress}>
-      <LinearGradient
-        colors={[COLORS.purple2, COLORS.purple1]}
-        start={{ x: 1, y: 0 }}
-        end={{ x: 0, y: 1 }}
-        style={[styles, _styles.button]}>
-        <Text style={_styles.title}>{title}</Text>
-      </LinearGradient>
+    <Pressable onPress={onPress} style={[_styles.button, styles]}>
+      <Text style={_styles.title}>{title}</Text>
     </Pressable>
   );
 };
 
 const _styles = StyleSheet.create({
+  button: {
+    height: 36,
+    borderRadius: 6,
+    backgroundColor: COLORS.purple,
+  },
   title: {
     color: 'white',
     textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: FPercentage(3.6),
-    padding: 12,
-  },
-  button: {
-    width: '100%',
-    height: 46,
+    fontSize: FPercentage(3.8),
+    padding: 7,
   },
 });
 export default ModalScanOntable;

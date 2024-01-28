@@ -11,6 +11,6 @@ interface Props {
 }
 
 const Index = ({ navigation }: Props) => {
-  return <ViewComp />;
+  return <ViewComp navigation={navigation} />;
 };
 export default Index;

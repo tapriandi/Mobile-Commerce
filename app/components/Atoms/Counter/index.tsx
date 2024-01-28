@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, View, Text, Pressable, ViewStyle } from 'react-native';
 import { MinIcon, PlusIcon } from '../../../assets/icons';
 import { COLORS } from '../../../constant/colors';
 
 interface Props {
   styleCard?: ViewStyle;
+  counter: number;
+  setCounter: (e: number) => void;
 }
 
-const index = ({ styleCard }: Props) => {
-  const [counter, setCounter] = useState<number>(11);
-
+const index = ({ styleCard, counter, setCounter }: Props) => {
   return (
     <View style={[styles.card, styleCard]}>
       <Pressable
@@ -17,7 +17,7 @@ const index = ({ styleCard }: Props) => {
         onPress={() => counter > 0 && setCounter(counter - 1)}>
         <MinIcon />
       </Pressable>
-      <Text style={styles.text}>{counter}</Text>
+      <Text style={styles.text}>{counter || 0}</Text>
       <Pressable style={styles.btn} onPress={() => setCounter(counter + 1)}>
         <PlusIcon />
       </Pressable>

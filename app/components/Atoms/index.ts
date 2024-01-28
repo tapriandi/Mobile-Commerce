@@ -1,4 +1,5 @@
 export { default as Button } from './Button';
+export { default as Button2 } from './Button/button2';
 export { default as BottomTabItem } from './BottomTabItem';
 export { default as Counter } from './Counter';
 export { default as Gap } from './Gap';
