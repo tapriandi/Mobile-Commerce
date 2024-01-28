@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { BottomTabNavigatorParams } from '../../navigator/types';
 import ViewComp from './view';
+import { TopTabNavigatorParams } from '../../../navigator/types';
 
-type IProps = NativeStackScreenProps<BottomTabNavigatorParams, 'Friends'>;
+type IProps = NativeStackScreenProps<TopTabNavigatorParams, 'Gin'>;
 type NavProps = IProps['navigation'];
 
 interface Props {
@@ -11,6 +11,14 @@ interface Props {
 }
 
 const Index = ({ navigation }: Props) => {
-  return <ViewComp />;
+  const [showAdditional, setShowAdditional] = useState(false);
+
+  return (
+    <ViewComp
+      navigation={navigation}
+      showAdditional={showAdditional}
+      setShowAdditional={setShowAdditional}
+    />
+  );
 };
 export default Index;

@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Pressable, StyleSheet, View, Text, Image } from 'react-native';
-import { COLORS } from '../../../constant/colors';
 import { FPercentage, widthPercentage } from '../../../utils/responsive';
 import { Button2, Counter, Gap } from '../../Atoms';
+import { COLORS } from '../../../constant/colors';
 
 interface Props {
   item: any;
+  onPressAdd?: (e: boolean) => void;
 }
-function ProductCategory({ item }: Props) {
+function ProductCategory({ item, onPressAdd }: Props) {
   const [counter, setCounter] = useState(0);
   const handleAddToCart = () => {
     if (item.category === 'gin') {
-      console.log();
+      onPressAdd(true);
     } else {
       setCounter(1);
     }
