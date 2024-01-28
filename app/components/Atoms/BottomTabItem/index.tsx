@@ -23,7 +23,6 @@ interface ComponentProps {
 }
 
 const Icon = ({ name, actived }: any) => {
-  console.log(name)
   switch (name) {
     case 'Home':
       return actived ? <HalfMoonActiveIcon /> : <HalfMoonIcon />;

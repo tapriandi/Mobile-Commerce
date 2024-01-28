@@ -10,6 +10,7 @@ import {
 import { Landing, Products, ProductDetail } from '../screenA';
 import { landingSelectors } from '../services/landing/landingSelector';
 import BottomTabNavigatorComponent from './bottomNavigator';
+import TopTabNavigatorComponent from './topNavigator';
 
 const ScreenA = createStackNavigator<ScreenAStackParams>();
 const ScreenAStack = () => {
@@ -32,10 +33,15 @@ const ScreenAStack = () => {
 const ScreenB = createStackNavigator<ScreenBStackParams>();
 const ScreenBStack = () => {
   return (
-    <ScreenB.Navigator initialRouteName="BottomTabNavigator">
+    <ScreenB.Navigator initialRouteName="TopTabNavigator">
       <ScreenB.Screen
         name="BottomTabNavigator"
         component={BottomTabNavigatorComponent}
+        options={{ headerShown: false }}
+      />
+      <ScreenB.Screen
+        name="TopTabNavigator"
+        component={TopTabNavigatorComponent}
         options={{ headerShown: false }}
       />
     </ScreenB.Navigator>

@@ -8,6 +8,14 @@ export type BottomTabNavigatorParams = {
   Order: undefined;
 };
 
+export type TopTabNavigatorParams = {
+  Champagne: undefined;
+  Gin: undefined;
+  Vodka: undefined;
+  Whiskey: undefined;
+  Beer: undefined;
+};
+
 export type ScreenAStackParams = {
   Products: undefined;
   Product: { id: number };
@@ -15,6 +23,7 @@ export type ScreenAStackParams = {
 
 export type ScreenBStackParams = {
   BottomTabNavigator: NavigatorScreenParams<BottomTabNavigatorParams>;
+  TopTabNavigator: NavigatorScreenParams<TopTabNavigatorParams>;
   Omni: undefined;
 };
 
