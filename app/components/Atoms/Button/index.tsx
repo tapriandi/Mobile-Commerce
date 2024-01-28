@@ -6,7 +6,7 @@ import { FPercentage } from '../../../utils/responsive';
 interface Props {
   title: string;
   styles?: ViewStyle;
-  onPress?: () => void;
+  onPress?: (e: any) => void;
 }
 const ModalScanOntable = ({ styles, title, onPress }: Props) => {
   return (

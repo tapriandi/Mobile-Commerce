@@ -33,7 +33,7 @@ const ScreenAStack = () => {
 const ScreenB = createStackNavigator<ScreenBStackParams>();
 const ScreenBStack = () => {
   return (
-    <ScreenB.Navigator initialRouteName="TopTabNavigator">
+    <ScreenB.Navigator initialRouteName="BottomTabNavigator">
       <ScreenB.Screen
         name="BottomTabNavigator"
         component={BottomTabNavigatorComponent}

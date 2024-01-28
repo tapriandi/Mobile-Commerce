@@ -4,7 +4,7 @@ import { heightPercentage, widthPercentage } from '../../../utils/responsive';
 import { BottomTabItem } from '../../Atoms';
 import { COLORS } from '../../../constant/colors';
 
-function MyTabBar({ state, descriptors, navigation }: any) {
+function MyTabBar({ state, descriptors, navigation, showModal }: any) {
   const [keyboardStatus, setKeyboardStatus] = useState<boolean>(false);
 
   useEffect(() => {
@@ -21,10 +21,15 @@ function MyTabBar({ state, descriptors, navigation }: any) {
     };
   }, []);
   return (
-    <View style={[styles.bottomTabContainer, keyboardStatus ? styles.hide : styles.show]}>
+    <View
+      style={[
+        styles.bottomTabContainer,
+        keyboardStatus ? styles.hide : styles.show,
+      ]}>
       {state.routes.map((route: any, index: number) => {
         const { options } = descriptors[route.key];
-        const label = options.tabBarLabel !== undefined ? options.tabBarLabel : route.name;
+        const label =
+          options.tabBarLabel !== undefined ? options.tabBarLabel : route.name;
         const title = options.title !== undefined ? options.title : route.name;
         const isFocused = state.index === index;
 
@@ -37,7 +42,11 @@ function MyTabBar({ state, descriptors, navigation }: any) {
 
           if (!isFocused && !event.defaultPrevented) {
             // The `merge: true` option makes sure that the params inside the tab screen are preserved
-            navigation.navigate({ name: route.name, merge: true });
+            if (route.name === 'Order') {
+              showModal(true);
+            } else {
+              navigation.navigate({ name: route.name, merge: true });
+            }
           }
         };
 
@@ -49,14 +58,17 @@ function MyTabBar({ state, descriptors, navigation }: any) {
         };
 
         return (
-          <BottomTabItem
-            key={`${index}_${title}`}
-            label={label}
-            onPress={onPress}
-            onLongPress={onLongPress}
-            actived={isFocused}
-            name={title}
-          />
+          <>
+            <BottomTabItem
+              key={`${index}_${title}`}
+              label={label}
+              onPress={onPress}
+              onLongPress={onLongPress}
+              actived={isFocused}
+              name={title}
+            />
+            
+          </>
         );
       })}
     </View>
