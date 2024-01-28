@@ -3,6 +3,8 @@ export { default as Event1 } from './event1.jpg';
 export { default as Event2 } from './event2.jpg';
 export { default as Event3 } from './event3.jpg';
 export { default as Event4 } from './event4.jpg';
+export { default as FireIcon } from './fire-icon.png';
+export { default as ProductIcon } from './product-icon.png';
 export { default as Product1 } from './product1.png';
 export { default as Product2 } from './product2.png';
 export { default as Product3 } from './product3.png';
